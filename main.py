@@ -10,6 +10,7 @@ st.title("Email Notification App")
 email_sender = st.text_input("Enter your email address (sender):", "")
 email_password = st.text_input("Enter your email password:", type="password")
 email_receiver = st.text_input("Enter recipient email address:", "")
+body = st.text_input("Enter the message you want to send:", "")
 
 if st.button("Start Sending Notifications"):
     if email_sender and email_password and email_receiver:
@@ -21,7 +22,6 @@ if st.button("Start Sending Notifications"):
                 msg['To'] = email_receiver
                 msg['Subject'] = "Hi!"
                 
-                body = "Hi! This is your minute notification."
                 msg.attach(MIMEText(body, 'plain'))
 
                 # Create server connection
